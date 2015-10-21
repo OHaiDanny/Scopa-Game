@@ -23,3 +23,18 @@
         <button>Log Out</button>
     </form>
 </template>
+
+
+<!-- State Change Master template -->
+<template name="signupLogin">
+    {{#if loggingIn }}
+        Logging In....
+    {{else}}
+        {{#if currentUser}}
+            {{> logout}}
+        {{else}}
+            {{> register}}
+            {{> login}}
+        {{/if}}
+    {{/if}}
+</template>
