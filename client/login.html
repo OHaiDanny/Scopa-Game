@@ -1,0 +1,25 @@
+<template name="register">
+    <form>
+        <h1>Register a new account</h1>
+        <input type="text" id="su-email" placeholder="Email Address" />
+        <input type="text" id="su-username" placeholder="Username" />
+        <input type="password" id="su-password" placeholder="Password" />
+        <button>Register</button>
+    </form>
+</template>
+
+<template name="login">
+    <form>
+        <h1>Log In</h1>
+        <input type="text" id="li-username" placeholder="Username" />
+        <input type="password" id="li-password" placeholder="Password" />
+        <button>Log In</button>
+    </form>
+</template>
+
+<template name="logout">
+    <form>
+        ({{ currentUser.username }})
+        <button>Log Out</button>
+    </form>
+</template>
