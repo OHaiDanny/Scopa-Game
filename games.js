@@ -1,4 +1,4 @@
-Games = Meteor.Collection('games');
+Games = new Meteor.Collection('games');
 
 /*
 
