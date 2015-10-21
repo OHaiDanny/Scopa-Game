@@ -15,6 +15,6 @@ Template.userList.helpers({
 
 Template.userItem.events({
    'click button': function(evt, template) {
-       
+       Meteor.call('createGame', template.data._id);
    } 
 });

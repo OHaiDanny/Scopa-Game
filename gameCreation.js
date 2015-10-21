@@ -79,7 +79,7 @@ function createDeck() {
     var suits = ['Cups', 'Coins', 'Swords', 'Clubs' ],
         cards = [];
     
-    suits.forEach(function (suits){
+    suits.forEach(function (suit){
        for (var i = 1; i <=10; i++) {
            var name = i;
            if (i===1) name = 'A';
@@ -97,5 +97,5 @@ function createDeck() {
     });
     
     // Meteor's _shuffle function to shuffle the card Array
-    return _shuffle(cards);
+    return _.shuffle(cards);
 }
