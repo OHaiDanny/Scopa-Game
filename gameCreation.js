@@ -2,8 +2,11 @@ GameFactory = {};
 
 // Factory for creating a new game
 GameFactory.createGame = function(playerIds) {
+    console.log(playerIds);
     var deck = createDeck(), // create the deck
-        players = createPlayer(playerIds); // assign the players
+        players = createPlayers(playerIds); // assign the players
+    
+    console.log(players);
     
     GameFactory.dealPlayers(players, deck); // deal the players their hand of cards
     

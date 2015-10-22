@@ -47,7 +47,7 @@ if (Meteor.isClient) {
 // available for both client and server
 Meteor.methods({
     createGame: function(otherPlayerId) {
-        var game = GameFactory.createGame([Meteor.userId()], otherPlayerId);
+        var game = GameFactory.createGame([Meteor.userId(), otherPlayerId]);
         Games.insert(game);
     }
 });
