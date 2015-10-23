@@ -1,9 +1,11 @@
 <template name='home'>
-    {{> signupLogin}}
+    {{> header}}
+    <div class="wrap">
     {{#if currentUser}}
         {{> gameList}}
         {{> userList}}
     {{/if}}
+    </div>
 </template>
 
 <template name='gameList'>

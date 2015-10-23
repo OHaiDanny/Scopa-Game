@@ -6,8 +6,6 @@ GameFactory.createGame = function(playerIds) {
     var deck = createDeck(), // create the deck
         players = createPlayers(playerIds); // assign the players
     
-    console.log(players);
-    
     GameFactory.dealPlayers(players, deck); // deal the players their hand of cards
     
     var table = dealTable(deck); // deal the table

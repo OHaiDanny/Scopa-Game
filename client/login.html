@@ -27,14 +27,16 @@
 
 <!-- State Change Master template -->
 <template name="signupLogin">
-    {{#if loggingIn }}
-        Logging In....
-    {{else}}
-        {{#if currentUser}}
-            {{> logout}}
+    <div id="login">
+        {{#if loggingIn }}
+            Logging In....
         {{else}}
-            {{> register}}
-            {{> login}}
+            {{#if currentUser}}
+                {{> logout}}
+            {{else}}
+                {{> register}}
+                {{> login}}
+            {{/if}}
         {{/if}}
-    {{/if}}
+    </div>
 </template>

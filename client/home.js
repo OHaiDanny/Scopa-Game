@@ -1,5 +1,4 @@
 function otherId(game) {
-    console.log("game", game);
     return game.currentTurn[game.currentTurn[0] === Meteor.userId() ? 1 : 0];
 }
 
