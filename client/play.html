@@ -13,12 +13,14 @@
 </template>
 
 <template name='status'>
-    <p><a id="back" href="/">&larr; Home </a></p>
-    <h2>Game between you and {{otherPlayer.username}} {{#if inProgress}} {{#if yourTurn}} ( Your Turn ) {{/if}} {{/if}}</h2>
+    <div id="status">
+        <p><a id="back" href="/">&larr; Home </a></p>
+        <h2>Game between you and {{otherPlayer.username}} {{#if inProgress}} {{#if yourTurn}} ( Your Turn ) {{/if}} {{/if}}</h2>
+    </div>
 </template>
 
 <template name="table">
-    <div id="table">
+    <div id="table" class="box">
         <h2>Table</h2>
         {{#each table}}
         <div class="card {{suit}}">
@@ -30,7 +32,7 @@
 </template>
 
 <template name="hand">
-    <div id="hand">
+    <div id="hand" class="box">
         <h2>Hand</h2>
         {{#each player.hand}}
         <div class="card {{suit}}">
@@ -42,7 +44,7 @@
 </template>
 
 <template name='pile'>
-    <div id='pile'>
+    <div id='pile' class="box">
         <h2>Collected Cards</h2>
         {{#each player.pile}}
             <li>{{name}} of {{suit}}</li>

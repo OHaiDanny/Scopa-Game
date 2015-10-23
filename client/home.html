@@ -9,12 +9,14 @@
 </template>
 
 <template name='gameList'>
-    <h1>Games</h1>
-    <ul>
-        {{#each games}}
-            {{> gameItem}}
-        {{/each}}
-    </ul>
+    <div id="gameList" class="box">
+        <h1>Games</h1>
+        <ul>
+            {{#each games}}
+                {{> gameItem}}
+            {{/each}}
+        </ul>
+    </div>
 </template>
 
 <template name='gameItem'>
@@ -30,7 +32,7 @@
 </template>
 
 <template name='userList'>
-    <div class='column'>
+    <div id="userList" class='column box'>
         <h1>Users</h1>
         <p>Choose another user to start a game with them:</p>
         <ul>

@@ -1,5 +1,6 @@
 <head>
     <link href='https://fonts.googleapis.com/css?family=Raleway:300,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <template name="header">
@@ -14,5 +15,11 @@
 <template name="layout">
     <div id="main">
         {{> yield}}
+        {{#unless currentUser}}
+            <div class="wrap">
+                {{> register}}
+                {{> login}}
+            </div>   
+        {{/unless}}
     </div>  
 </template>
