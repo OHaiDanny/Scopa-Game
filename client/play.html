@@ -24,8 +24,20 @@
         <h2>Table</h2>
         {{#each table}}
         <div class="card {{suit}}">
-            <div>{{name}}</div>
-            <div>{{suit}}</div>
+            <span>{{name}}</span>
+            {{#if equals suit 'Cups'}}
+                <i class="flaticon-trophy36"></i>
+            {{/if}}
+            {{#if equals suit 'Clubs'}}
+                <i class="flaticon-feather24"></i>
+            {{/if}}
+            {{#if equals suit 'Coins'}}
+                <i class="flaticon-coins15"></i>
+            {{/if}}
+            {{#if equals suit 'Swords'}}
+                <i class="flaticon-oriental"></i>
+            {{/if}}
+            <span>{{name}}</span>
         </div>
         {{/each}}
     </div>
@@ -36,8 +48,20 @@
         <h2>Hand</h2>
         {{#each player.hand}}
         <div class="card {{suit}}">
-            <div>{{name}}</div>
-            <div>{{suit}}</div>
+            <span>{{name}}</span>
+            {{#if equals suit 'Cups'}}
+                <i class="flaticon-trophy36"></i>
+            {{/if}}
+            {{#if equals suit 'Clubs'}}
+                <i class="flaticon-feather24"></i>
+            {{/if}}
+            {{#if equals suit 'Coins'}}
+                <i class="flaticon-coins15"></i>
+            {{/if}}
+            {{#if equals suit 'Swords'}}
+                <i class="flaticon-oriental"></i>
+            {{/if}}
+            <span>{{name}}</span>
         </div>
         {{/each}}
     </div>

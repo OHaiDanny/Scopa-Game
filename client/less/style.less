@@ -177,6 +177,41 @@ header { // Header Customization
     }
 }
 
+#table .card, #hand .card {
+    width:112px;
+    height:153px;
+    text-align:center;
+    border:1px solid #888;
+    border-radius:5px;
+    display:inline-block;
+    position:relative;
+    
+    span {
+        font-size:0.8em;
+        height:10%;
+        display:block;
+        position:relative;
+        &:first-of-type {
+            left:0.5em;
+            top:0.25em;
+            text-align:left;
+        }
+        &:last-of-type{ 
+            bottom:0.25em;
+            right:0.5em;
+            text-align:right;
+        }
+    }
+    i {
+        display:block;
+        height:80%;
+        padding:1em 0;
+        &:before {
+            font-size:6em;
+        }
+    }
+}
+
 #hand {
     width:57%;
     float:left;
