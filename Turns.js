@@ -12,7 +12,7 @@ function matchCard(a, b) {
 }
 
 Turns.getMatch = function(card, set) { // find a match
-    var matches = findMatches(card, set);
+    var matches = Turns.findMatches(card, set);
     if (matches.length > 0) {
         return Turns.bestMatch(matches);
     }
@@ -22,14 +22,15 @@ Turns.getMatch = function(card, set) { // find a match
 Turns.findMatches = function(card, set) {
     var matches = [];
     set.forEach(function(tableCard) {
-        if (tableCard.value === card.value) matches.pull([tableCard]);
+        if (tableCard.value === card.value) matches.push([tableCard]);
     });
+    console.log("Matches: ", matches)
     
     if (matches.length > 0) return matches;
     
-    for (var i=2; var <= set.length; i++) {
+    for (var i=2; i <= set.length; i++) {
         combinations(set, i, function (potentialMatch) {
-            if (sumCard(potentialMatch) === card.value) matches.push(potentialMatch.slice());
+            if (sumCards(potentialMatch) === card.value) matches.push(potentialMatch.slice());
         });
     }
     
@@ -49,7 +50,7 @@ Turns.bestMatch = function(matches) {
         
         var coinCount = match.filter(function (card) { return card.suit === "Coins"}).length;
         
-        if (coinCount > mostCoin[0]) mostCoins = [coinCount, match];
+        if (coinCount > mostCoins[0]) mostCoins = [coinCount, match];
         if (match.length > mostCards[0]) mostCards = [match.length, match];
     }
     
@@ -65,7 +66,7 @@ Turns.takeMatch = function(game, id, card, match) {
     game.players[id].pile.push(card);
     game.lastScorer = id;
     
-    if (game.table.length = 0) {
+    if (game.table.length === 0) {
         game.players[id].score.scopa++;
     }
 };

@@ -80,6 +80,6 @@ Meteor.methods({
 
 function allHandsEmpty(players) {
     return _.every(players, function(player) {
-        return players.hand.length === 0;
+        return player.hand.length === 0;
     });
 }
