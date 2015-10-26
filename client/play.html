@@ -1,22 +1,59 @@
 <template name='play'>
     {{> header}}
     <div class="wrap">
-    {{#if currentUser}}
-        {{> status}}
-        {{#if inProgress}}
-            {{> table}}
-            {{> hand}}
-        {{/if}}
-        {{> pile}}
-    {{/if}}
+        {{#if currentUser}} {{> status}} {{#unless inProgress}} {{> score}} {{/unless}} {{#if inProgress}} {{> table}} {{> hand}} {{/if}} {{> pile}} {{/if}}
     </div>
 </template>
 
 <template name='status'>
     <div id="status">
-        <p><a id="back" href="/">&larr; Home </a></p>
+        <p><a id="back" href="/">&larr; Home </a>
+        </p>
         <h2>Game between you and {{otherPlayer.username}} {{#if inProgress}} {{#if yourTurn}} ( Your Turn ) {{/if}} {{/if}}</h2>
     </div>
+</template>
+
+<template name='score'>
+    <h1> Game Over! {{message}}</h1>
+
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>You</th>
+            <th>{{otherPlayer.username}}</th>
+        </tr>
+        <tr>
+            <td>Most Cards</td>
+            <td>{{player.score.mostCards}}</td>
+            <td>{{otherPlayer.score.mostCards}}</td>
+        </tr>
+        <tr>
+            <td>Most Coins</td>
+            <td>{{player.score.mostCoins}}</td>
+            <td>{{otherPlayer.score.mostCoins}}</td>
+        </tr>
+        <tr>
+            <td>Sette Bello</td>
+            <td>{{player.score.setteBello}}</td>
+            <td>{{otherPlayer.score.setteBello}}</td>
+        </tr>
+        <tr>
+            <td>Primera</td>
+            <td>{{player.score.primera}}</td>
+            <td>{{otherPlayer.score.primera}}</td>
+        </tr>
+        <tr>
+            <td>Scopa</td>
+            <td>{{player.score.scopa}}</td>
+            <td>{{otherPlayer.score.scopa}}</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>{{player.score.total}}</td>
+            <td>{{otherPlayer.score.total}}</td>
+        </tr>
+
+    </table>
 </template>
 
 <template name="table">
@@ -26,16 +63,13 @@
         <div class="card {{suit}}">
             <span>{{name}}</span>
             {{#if equals suit 'Cups'}}
-                <i class="flaticon-trophy36"></i>
-            {{/if}}
-            {{#if equals suit 'Clubs'}}
-                <i class="flaticon-feather24"></i>
-            {{/if}}
-            {{#if equals suit 'Coins'}}
-                <i class="flaticon-coins15"></i>
-            {{/if}}
-            {{#if equals suit 'Swords'}}
-                <i class="flaticon-oriental"></i>
+            <i class="flaticon-trophy36"></i>
+            {{/if}} {{#if equals suit 'Clubs'}}
+            <i class="flaticon-feather24"></i>
+            {{/if}} {{#if equals suit 'Coins'}}
+            <i class="flaticon-coins15"></i>
+            {{/if}} {{#if equals suit 'Swords'}}
+            <i class="flaticon-oriental"></i>
             {{/if}}
             <span>{{name}}</span>
         </div>
@@ -50,16 +84,13 @@
         <div class="card {{suit}}">
             <span>{{name}}</span>
             {{#if equals suit 'Cups'}}
-                <i class="flaticon-trophy36"></i>
-            {{/if}}
-            {{#if equals suit 'Clubs'}}
-                <i class="flaticon-feather24"></i>
-            {{/if}}
-            {{#if equals suit 'Coins'}}
-                <i class="flaticon-coins15"></i>
-            {{/if}}
-            {{#if equals suit 'Swords'}}
-                <i class="flaticon-oriental"></i>
+            <i class="flaticon-trophy36"></i>
+            {{/if}} {{#if equals suit 'Clubs'}}
+            <i class="flaticon-feather24"></i>
+            {{/if}} {{#if equals suit 'Coins'}}
+            <i class="flaticon-coins15"></i>
+            {{/if}} {{#if equals suit 'Swords'}}
+            <i class="flaticon-oriental"></i>
             {{/if}}
             <span>{{name}}</span>
         </div>
@@ -71,7 +102,7 @@
     <div id='pile' class="box">
         <h2>Collected Cards</h2>
         {{#each player.pile}}
-            <li>{{name}} of {{suit}}</li>
+        <li>{{name}} of {{suit}}</li>
         {{/each}}
     </div>
 </template>

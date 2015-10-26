@@ -16,6 +16,13 @@
                 {{> gameItem}}
             {{/each}}
         </ul>
+        
+        <h1>Completed Games</h1>
+        <ul>
+            {{#each completedGames}}
+                {{> gameItem}}
+            {{/each}}
+        </ul>
     </div>
 </template>
 
@@ -24,7 +31,9 @@
         <a href='/game/{{_id}}'>Game with {{otherPlayer}}
             <span>
                 {{#if inProgress}}
-                    {{started}}
+                    Started: {{started}}
+                {{else}}
+                    Finished: {{finished}} ({{message}})
                 {{/if}}
             </span>
         </a>
